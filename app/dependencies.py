@@ -49,3 +49,29 @@ class RoleChecker:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="You do not have the required permissions")
         return user
     
+    
+# ROLE_HIERARCHY = {
+#     "ADMIN": 2,
+#     "USER": 1
+# }
+
+# def require_role(required_role: str):
+#     def role_checker(current_user: UserAuth = Depends(get_current_user)):
+
+#         user_role = current_user.role
+
+#         if user_role not in ROLE_HIERARCHY or required_role not in ROLE_HIERARCHY:
+#             raise HTTPException(
+#                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+#                 detail="Invalid role configuration"
+#             )
+
+#         if ROLE_HIERARCHY[user_role] < ROLE_HIERARCHY[required_role]:
+#             raise HTTPException(
+#                 status_code=status.HTTP_403_FORBIDDEN,
+#                 detail="Insufficient permissions"
+#             )
+
+#         return current_user
+
+#     return role_checker
